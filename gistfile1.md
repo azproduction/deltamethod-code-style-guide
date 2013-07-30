@@ -67,7 +67,7 @@ var q=a?12:"none";
 ```
 
 #### Line wraps
-Lines should wrap at 70..100 symbols.
+Lines should wrap at 80 symbols or less.
 
 ### Naming Things
 
