@@ -130,6 +130,14 @@ foo("aleph",12,new Image);
 
 ```
 
+#### Anonymous Functions To Be Called In-Place
+
+```(javascript)
+(function($, undefined) {
+    // deliver happiness!
+})(jQuery);
+```
+
 #### var Statement
 
 Always use var statements.
@@ -142,7 +150,7 @@ function myFunc() {
         emptyObj = {},
         tmp;
 
-// do some good
+    // do some good
 }
 ```
 Individual vriables still can be introduced later in the function body, especially when it comes to loop control vars.
