@@ -147,7 +147,7 @@ foo("aleph",12,new Image);
 
 Always use var statements.
 
-Use single var declaration inside your methods:
+Use single var declaration:
 ```(javascript)
 function myFunc() {
     var i = 42,
@@ -158,15 +158,8 @@ function myFunc() {
     // do some good
 }
 ```
-Individual variables still can be introduced later in the function body, especially when it comes to loop control vars.
 
-Prefer multi-var statements when loading modules and specifying dependencies:
-```(javascript)
-var defineComponent = require('flight/lib/component');
-var template = require('text!pages/editTable/tpls/page.dust');
-var row = require('text!pages/editTable/tpls/row.dust');
-var profile = require('profile');
-```
+Individual variables still can be introduced later in the function body, especially when it comes to loop control vars.
 
 ### Conditons And Loops
 
