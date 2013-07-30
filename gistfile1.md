@@ -22,4 +22,19 @@ function MyConstructor() {
 }
 ```
 
-Whenever you need a singleton, 
+Whenever you need a singleton, use anonymous function execution as it allows for some private variables:
+
+```(javascript)
+
+var single = (function() {
+    var privateVar = 42;
+    
+    return {
+        publicMethod: function() {
+            alert('Answer to life and everything is: ' + privateVar);
+        }
+    }
+    
+})();
+
+```
