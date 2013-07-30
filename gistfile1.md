@@ -47,9 +47,10 @@ Whitespace around brackets **collapses**:
 banana(grape(apple(12), "red"), quantum);
 
 // no!
-banana ( grape ( apple( 12 ), "red" ) ), quantum);
+banana ( grape ( apple( 12 ), "red" ) ), quantum );
 ```
 
+#### Operations
 Indent arithmetical operations and logical conditions with spaces:
 
 ```(javascript)
@@ -61,7 +62,12 @@ var q=a?12:"none";
 ```
 
 #### Line wraps
-Lines should wrap at 70..100 symbols
+Lines should wrap at 70..100 symbols.
+
+### Naming Things
+
+Use lowercase for ordinary variables, camelCase for names that consist of more that one word.
+**Do not use** underscore_as_separator_for_variable_names.
 
 ### Scope
 
@@ -99,3 +105,27 @@ var single = (function() {
     }
 })();
 ```
+
+### Functions
+
+```(javascript)
+// Good and readable
+function foo(nomen, count, domElement) {
+    // magic here...
+}
+
+foo("aleph",12,newImage);
+
+// Bad, too loose
+function foo ( nomen, count, domElement ) {
+    // magic here...
+}
+
+foo( "aleph", 12, newImage );
+
+// Bad, feels like suffocating:
+function foo(nomen,count,domElement){/*magic here*/};
+foo("aleph",12,newImage);
+
+```
+
