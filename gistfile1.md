@@ -200,7 +200,7 @@ if (condA
 }
 ```
 
-### Ternary Operator
+#### Ternary Operator
 
 Use it with short statements, in variable declarations, object literals.
 Do not use extra brackets if they are not needed.
@@ -213,3 +213,68 @@ var properties = {
 };
 
 ```
+
+### jQuery
+
+Avoid:
+  * global selectors
+  * overcomplicated selectors
+
+#### Naming
+
+Use names starting with ``$`` for:
+  * variables that hold references to jQuery collections
+  * functions that return jQuery collections
+
+#### Good Practices
+
+Cache your collections:
+
+```(javascript)
+var $this = $(this);
+
+// reuse $this here
+
+```
+
+Chain your code!
+Use meaningful indentation.
+Use ``.end()`` to get back to a previous selection.
+
+```(javascript)
+// Good:
+this.$node
+    .find(className)
+        .on('click', handler)
+    .end()
+    .find(somethingElse)
+        .addClass(mod)
+    .end()
+    .trigger('allDone');
+
+```
+
+#### jQuery Built-In Helpers
+
+Those are there for a reason.
+Use them, unless there is a better alternative available because of our nice browser requirements.
+
+### Twitter Flight
+
+Use key names that start with ``$`` for all defaultAttr properties that represent selectors.
+Align them nicely, too.
+
+```(javascript)
+this.defaultAttrs({
+    $container: '.dm-page-edit-table__container',
+    $table:     '.dm-page-edit-table__table',
+    $row:       '.dm-page-edit-table__row',
+
+    flag: true
+});
+```
+
+Try to use only single-level methods in your components — unless you absolutely have to do otherwise.
+
+Be careful playing with ``this`` inside components; rely on default bindings provided by the framework unless you really undestand the difference between constructor and instance properties in your specific case.
+
