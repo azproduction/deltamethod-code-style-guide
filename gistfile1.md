@@ -38,6 +38,13 @@ this.code().is('commented out!');
 /**/
 ```
 
+#### Good Practices
+
+**Always comment complex parts of your code**.
+This is something we really need to do (but usually don't).
+
+**If the code is complicated enough, a pull request can be rejected based on that.**
+
 #### Brackets
 
 Whitespace around brackets **collapses**:
@@ -163,3 +170,43 @@ var row = require('text!pages/editTable/tpls/row.dust');
 var profile = require('profile');
 ```
 
+### Conditons And Loops
+
+Add one space after keywords like ``if``, ``for```, ``while``.
+```(javascript)
+if (weekDay === 'Friday') {
+    // do party!
+    var money = 1000;
+
+    while (money > 0) {
+        money--;
+    }
+}
+```
+
+#### Indenting Complex Conditions
+
+Use additional indentation of 2 spaces:
+
+```(javascript)
+if (condA
+      && condB === 'foo'
+      && condC > bar) {
+    
+    // finally we get here...
+}
+```
+
+### Ternary Operator
+
+Use it with short statements, in variable declarations, object literals.
+Do not use extra brackets if they are not needed.
+
+Do not use nested ternaries.
+
+```(javascript)
+var properties = {
+    happiness: origin === 'Deltamethod' ? 'yes' : 'not really'
+};
+
+```
