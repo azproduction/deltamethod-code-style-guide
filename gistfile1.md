@@ -1,8 +1,8 @@
-= Deltamethod Code Style Guide
+# Deltamethod Code Style Guide
 
-== JavaScript
+## JavaScript
 
-==== Scope
+### Scope
 
   * Use .bind(this) or closures whenever appropriate;
   * Prefer closures for small inline functions (closures are a bit faster as well)
