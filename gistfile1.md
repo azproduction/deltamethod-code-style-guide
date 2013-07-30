@@ -108,24 +108,50 @@ var single = (function() {
 
 ### Functions
 
+#### Declaration and Call
 ```(javascript)
 // Good and readable
 function foo(nomen, count, domElement) {
     // magic here...
 }
 
-foo("aleph",12,newImage);
+foo("aleph", 12, new Image);
 
 // Bad, too loose
 function foo ( nomen, count, domElement ) {
     // magic here...
 }
 
-foo( "aleph", 12, newImage );
+foo( "aleph", 12, new Image );
 
 // Bad, feels like suffocating:
 function foo(nomen,count,domElement){/*magic here*/};
-foo("aleph",12,newImage);
+foo("aleph",12,new Image);
 
+```
+
+#### var Statement
+
+Always use var statements.
+
+Use single var declaration inside your methods:
+```(javascript)
+function myFunc() {
+    var i = 42,
+        foo = "bar",
+        emptyObj = {},
+        tmp;
+
+// do some good
+}
+```
+Individual vriables still can be introduced later in the function body, especially when it comes to loop control vars.
+
+Prefer multi-var statements when loading modules and specifying dependencies:
+```(javascript)
+var defineComponent = require('flight/lib/component');
+var template = require('text!pages/editTable/tpls/page.dust');
+var row = require('text!pages/editTable/tpls/row.dust');
+var profile = require('profile');
 ```
 
