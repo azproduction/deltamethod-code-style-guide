@@ -41,8 +41,6 @@ this.code().is('commented out!');
 #### Good Practices
 
 **Always comment complex parts of your code**.
-This is something we really need to do (but usually don't).
-
 **If the code is complicated enough, a pull request can be rejected based on that.**
 
 #### Brackets
