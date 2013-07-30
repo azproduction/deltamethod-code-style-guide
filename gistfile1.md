@@ -56,7 +56,7 @@ banana ( grape ( apple( 12 ), "red" ) ), quantum );
 ```
 
 #### Operations
-Indent arithmetical operations and logical conditions with spaces:
+Add spaces around arithmetical operations and logical conditions:
 
 ```(javascript)
 // good
