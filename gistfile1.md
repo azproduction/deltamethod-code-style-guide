@@ -158,7 +158,7 @@ function myFunc() {
     // do some good
 }
 ```
-Individual vriables still can be introduced later in the function body, especially when it comes to loop control vars.
+Individual variables still can be introduced later in the function body, especially when it comes to loop control vars.
 
 Prefer multi-var statements when loading modules and specifying dependencies:
 ```(javascript)
