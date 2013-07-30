@@ -177,10 +177,13 @@ Add one space after keywords like ``if``, ``for```, ``while``.
 if (weekDay === 'Friday') {
     // do party!
     var money = 1000;
-
     while (money > 0) {
         money--;
     }
+} else if (weekDay === 'Sunday') {
+    relax();
+} else {
+    doHardWork();
 }
 ```
 
