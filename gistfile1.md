@@ -387,8 +387,8 @@ We use LESS to create CSS for most components, but the styleguide rules usually 
 ```
 ### Selectors
 
-We try to follow BEM principles and naming conventions.
-Because of that, 90% of our code should use a single class or a combination of 2 classes as a selector.
+We follow BEM methodology and naming conventions.
+Because of that, 90% of our CSS should use a single class or a combination of 2 classes as a selector.
 
 See [BEM Cheatsheet](https://gist.github.com/ingdir/0b211b9253c376f9cfa5) for more info on BEM and CSS naming conventions we use.
 
