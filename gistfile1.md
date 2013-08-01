@@ -194,7 +194,7 @@ Individual variables still can be introduced later in the function body, especia
 
 ### Conditons And Loops
 
-Add one space after keywords like ``if``, ``for```, ``while``.
+Add one space after keywords like ``if``, ``for``, ``while``.
 ```javascript
 if (weekDay === 'Friday') {
     // do party!
