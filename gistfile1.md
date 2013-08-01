@@ -24,11 +24,11 @@ Prefer one-line comments for explanations:
   * Previous-line comments use the same indentation as the line they precede
 
 ```javascript
-i++;  // increment "i" so it becomes bigger and better
+i++;  // increment 'i' so it becomes bigger and better
 
 if (i === 42) {
     // notify all the good people
-    sendMessage("We've got it!");
+    sendMessage('got it!');
 }
 
 ```
@@ -68,10 +68,10 @@ Whitespace around brackets **collapses**:
 
 ```javascript
 // no!
-banana ( grape ( apple( 12 ), "red" ) ), quantum );
+banana ( grape ( apple( 12 ), 'red' ) ), quantum );
 
 // yes
-banana(grape(apple(12), "red"), quantum);
+banana(grape(apple(12), 'red'), quantum);
 ```
 
 #### Operations
@@ -79,10 +79,10 @@ Add spaces around arithmetical operations and logical conditions:
 
 ```javascript
 // bad
-var q=a?12:"none";
+var q=a?12:'none';
 
 // good
-var q = a ? 12 : "none";
+var q = a ? 12 : 'none';
 ```
 
 #### Line Breaks
