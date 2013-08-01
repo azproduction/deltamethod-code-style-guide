@@ -13,7 +13,7 @@ Use 4 spaces for indentation.
 #### Quotes
 Use single quotes, unless you're writing JSON:
 
-```(javascript)
+```javascript
 var lord = 'Sauron';
 ```
 
@@ -23,7 +23,7 @@ Prefer one-line comments for explanations:
   * Same-line comments are: 2 spaces, slash, slash, space, comment text
   * Previous-line comments use the same indentation as the line they precede
 
-```(javascript)
+```javascript
 i++;  // increment "i" so it becomes bigger and better
 
 if (i === 42) {
@@ -35,7 +35,7 @@ if (i === 42) {
 
 Multiline comments should be used for JSDoc mostly, or for this trick when you need to comment and un-comment parts of your code frequently (they differ by 1 character):
 
-```(javascript)
+```javascript
 /**/
 this.code().is('working');
 /**/
@@ -66,27 +66,33 @@ Some ** invalid reasons:
 
 Whitespace around brackets **collapses**:
 
-```(javascript)
-// yes
-banana(grape(apple(12), "red"), quantum);
-
+```javascript
 // no!
 banana ( grape ( apple( 12 ), "red" ) ), quantum );
+
+// yes
+banana(grape(apple(12), "red"), quantum);
 ```
 
 #### Operations
 Add spaces around arithmetical operations and logical conditions:
 
-```(javascript)
-// good
-var q = a ? 12 : "none";
-
+```javascript
 // bad
 var q=a?12:"none";
+
+// good
+var q = a ? 12 : "none";
 ```
 
-#### Line wraps
-Lines should wrap at 80 symbols or less.
+#### Line Breaks
+Lines should break at about 80 symbols after the first non-whitespace character.
+
+There are obvious exceptions:
+  * long string literals
+  * code that should stay on 1 line for technical reasons
+  
+However, using long lines for complex conditions is bad practice; we're not in a Perl one-liner competition.
 
 ### Naming Things
 
@@ -95,7 +101,7 @@ Use lowercase for ordinary short variables, camelCase for names that consist of 
 
 Module and component names are capitalized:
 
-```(javascript)
+```javascript
 var Flyout = require('mixins/flyout/mixin');
 ```
 
@@ -115,7 +121,7 @@ For private methods and properties, use names starting with underscore, like ``_
 #### Constructors
 
 Constructor names should begin with a capital letter:
-```(javascript)
+```javascript
 function MyConstructor() {
    // some magic
 }
@@ -124,7 +130,7 @@ function MyConstructor() {
 #### Singletons
 Whenever you need a singleton, use anonymous function execution as it allows for some private variables:
 
-```(javascript)
+```javascript
 var single = (function() {
     var privateVar = 42;
     
@@ -139,14 +145,7 @@ var single = (function() {
 ### Functions
 
 #### Declaration and Call
-```(javascript)
-// Good and readable
-function foo(nomen, count, domElement) {
-    // magic here...
-}
-
-foo("aleph", 12, new Image);
-
+```javascript
 // Bad, too loose
 function foo ( nomen, count, domElement ) {
     // magic here...
@@ -154,15 +153,22 @@ function foo ( nomen, count, domElement ) {
 
 foo( "aleph", 12, new Image );
 
-// Bad, feels like suffocating:
+// Bad, feels like suffocation:
 function foo(nomen,count,domElement){/*magic here*/};
 foo("aleph",12,new Image);
+
+// Good and readable
+function foo(nomen, count, domElement) {
+    // magic here...
+}
+
+foo("aleph", 12, new Image);
 
 ```
 
 #### Anonymous Functions To Be Called In-Place
 
-```(javascript)
+```javascript
 (function($, undefined) {
     // deliver happiness!
 })(jQuery);
@@ -173,7 +179,7 @@ foo("aleph",12,new Image);
 Always use var statements.
 
 Use single var declaration:
-```(javascript)
+```javascript
 function myFunc() {
     var i = 42,
         foo = "bar",
@@ -189,7 +195,7 @@ Individual variables still can be introduced later in the function body, especia
 ### Conditons And Loops
 
 Add one space after keywords like ``if``, ``for```, ``while``.
-```(javascript)
+```javascript
 if (weekDay === 'Friday') {
     // do party!
     var money = 1000;
@@ -207,7 +213,7 @@ if (weekDay === 'Friday') {
 
 Use additional indentation of 2 spaces:
 
-```(javascript)
+```javascript
 if (condA
       && condB === 'foo'
       && condC > bar) {
@@ -223,7 +229,7 @@ Do not use extra brackets if they are not needed.
 
 Do not use nested ternaries.
 
-```(javascript)
+```javascript
 var properties = {
     happiness: origin === 'Deltamethod' ? 'yes' : 'not really'
 };
@@ -239,10 +245,24 @@ In normal code, no console.log should be used.
 
 ### jQuery
 
-Avoid:
-  * global selectors
-  * overcomplicated selectors
+Avoid global selectors:
 
+```javascript
+// bad, starts from the document node
+$('.button').hide();
+
+// good, provides context
+this.$node.find('.button');
+
+// good as well
+$(e.target).find('.button');
+```
+
+Avoid too general selectors even as parts of your selection chain:
+```javascript
+// bad, too general
+$node.find('div').find('.section');
+```
 #### Naming
 
 Use names starting with ``$`` for:
@@ -253,7 +273,7 @@ Use names starting with ``$`` for:
 
 Cache your collections:
 
-```(javascript)
+```javascript
 var $this = $(this);
 
 // reuse $this here
@@ -262,9 +282,10 @@ var $this = $(this);
 
 Chain your code!
 Use meaningful indentation.
-Use ``.end()`` to get back to a previous selection.
 
-```(javascript)
+You can use ``.end()`` to get back to a previous selection.
+
+```javascript
 // Good:
 this.$node
     .find(className)
@@ -287,10 +308,10 @@ Use them, unless there is a better alternative available because of our nice bro
 
 ### Twitter Flight
 
-Use key names that start with ``$`` for all defaultAttr properties that represent selectors.
+Use key names that start with ``$`` for all ``defaultAttr`` properties that represent selectors.
 Align them nicely, too.
 
-```(javascript)
+```javascript
 this.defaultAttrs({
     $container: '.dm-page-edit-table__container',
     $table:     '.dm-page-edit-table__table',
@@ -306,11 +327,30 @@ Be careful playing with ``this`` inside components; rely on default bindings pro
 
 ## HTML
 
-### Markup
-
+### Doctype
 Use HTML5 doctype for all your documents.
 
-Additional requirements:
+### HTML5 elements
+Use of HTML5 new tags is **not recommended**.
+CSS classnames is how you add semantics to your markup.
+
+### Indentation and Multiline
+
+Use 4 spaces to indent each nested block.
+Use 2 spaces for second-level indentation.
+Use extra line breaks for tags with many attributes.
+For long class names, use line breaks inside the attribute, this is supported.
+
+```html
+<!-- This is actually OK -->
+<div data-id="my"
+  class="dm-section
+    dm-section_size_big
+    dm-page__section">
+    text
+</div>
+```
+### Additional requirements:
 
   * Lowercase tag and attribute names
   * Use double quotes for attribute values
@@ -319,9 +359,125 @@ Additional requirements:
 
 Always close your tags even if they are **void elements**; this does not affect rendering but improves readability.
 
-```(html)
-<!-- Do this! -->
+```html
+<!-- Don't do this: -->
+<p>Paragraph 1
+<p>Paragraph 2 <img src="http://coolcats.com/cat23646">
+
+<!-- Do this instead: -->
 <input type="button" disabled="disabled" value="" />
 <br />
 ```
 
+## CSS/LESS
+
+We use LESS to create CSS for most components, but the styleguide rules usually apply to both.
+
+### Indentation
+
+4 spaces indentation inside a rule block, curly brackets similar to JS:
+
+```css
+.dm-block {
+    position: relative;
+    top: 5px;
+    
+    border: solid 1px #000;
+}
+```
+### Selectors
+
+We try to follow BEM principles and naming conventions.
+Because of that, 90% of our code should use a single class or a combination of 2 classes as a selector.
+
+See [BEM Cheatsheet](https://gist.github.com/ingdir/0b211b9253c376f9cfa5) for more info on BEM and CSS naming conventions we use.
+
+### Order Of Properties Inside A Rule
+
+We try to group all properties into 7 categories, in this order:
+
+  * font
+  * positioning
+  * display
+  * sizes
+  * table/list specific
+  * text-related
+  * color, backgrounds, effects
+  
+Inside each rule, groups of properties are separated by 1 blank line.
+Full list of properties grouped in this order:
+
+```css
+.dm-block {
+    font: bold 1em/1.4em Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
+    font-size: 1em;
+    font-weight: bold;
+    font-style: italic;
+    font-variant: small-caps;
+    line-height: 1;
+
+    position: static;
+    z-index: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    display: block;
+    visibility: hidden;
+    float: none;
+    clear: none;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    zoom: 1;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: content-box;
+    width: auto;
+    min-width: 0;
+    max-width: 0;
+    height: auto;
+    min-height: 0;
+    max-height: 0;
+    margin: 0;
+    padding: 0;
+
+    table-layout: fixed;
+    empty-cells: show;
+    border-spacing: 0;
+    border-collapse: collapse;
+    list-style: none;
+
+    content: "";
+    counter-reset: chapter 0;
+    counter-increment: chapter;
+    cursor: default;
+    text-align: left;
+    vertical-align: top;
+    white-space: normal;
+    text-decoration: none;
+    text-indent: 1;
+    text-transform: uppercase;
+    letter-spacing: 1;
+    word-spacing: normal;
+
+    opacity: 1;
+    color: red;
+    border: 1px solid red;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    outline: 1px solid red;
+    background: #fff no-repeat 0 0 url(../i/bg.png);
+    box-shadow: ...;
+    text-shadow: ...;
+
+    -webkit-transition: -webkit-transform 150ms linear;
+    transition: transform 150ms linear;
+}
+```
+
+
+  
