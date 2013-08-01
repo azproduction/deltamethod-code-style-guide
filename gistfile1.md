@@ -339,7 +339,7 @@ CSS classnames is how you add semantics to your markup.
 Use 4 spaces to indent each nested block.
 Use 2 spaces for second-level indentation.
 Use extra line breaks for tags with many attributes.
-For long class names, use line breaks inside the attribute, this is supported.
+For long class attributes, use line breaks to separate class names, this is supported by all browsers.
 
 ```html
 <!-- This is actually OK -->
