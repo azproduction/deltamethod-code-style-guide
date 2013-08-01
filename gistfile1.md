@@ -10,6 +10,13 @@ Until we hire Lea Verou, it's all spaces, bro.
 
 Use 4 spaces for indentation.
 
+#### Quotes
+Use single quotes, unless you're writing JSON:
+
+```(javascript)
+var lord = 'Sauron';
+```
+
 #### Comments
 
 Prefer one-line comments for explanations:
@@ -71,8 +78,14 @@ Lines should wrap at 80 symbols or less.
 
 ### Naming Things
 
-Use lowercase for ordinary variables, camelCase for names that consist of more that one word.
+Use lowercase for ordinary short variables, camelCase for names that consist of more that one word.
 **Do not use** underscore_as_separator_for_variable_names.
+
+Module and component names are capitalized:
+
+```(javascript)
+var Flyout = require('mixins/flyout/mixin');
+```
 
 ### Scope
 
@@ -205,6 +218,13 @@ var properties = {
 
 ```
 
+### console.log
+
+Use of ``console.log()`` is only allowed inside error handlers (such as try/catch or Ajax error handlers).
+This is only possible if there is a shim in the code that prevents browser from firing 
+In normal code, no console.log should be used.
+
+
 ### jQuery
 
 Avoid:
@@ -247,6 +267,9 @@ this.$node
 
 #### jQuery Built-In Helpers
 
+See the full list:
+http://api.jquery.com/category/utilities/
+
 Those are there for a reason.
 Use them, unless there is a better alternative available because of our nice browser requirements.
 
@@ -268,4 +291,25 @@ this.defaultAttrs({
 Try to use only single-level methods in your components — unless you absolutely have to do otherwise.
 
 Be careful playing with ``this`` inside components; rely on default bindings provided by the framework unless you really undestand the difference between constructor and instance properties in your specific case.
+
+## HTML
+
+### Markup
+
+Use HTML5 doctype for all your documents.
+
+Additional requirements:
+
+  * Lowercase tag and attribute names
+  * Use double quotes for attribute values
+  * Encode HTML entities in attribute values
+  * Do not use **attribute minimization** (attributes without values)
+
+Always close your tags even if they are **void elements**; this does not affect rendering but improves readability.
+
+```(html)
+<!-- Do this! -->
+<input type="button" disabled="disabled" value="" />
+<br />
+```
 
