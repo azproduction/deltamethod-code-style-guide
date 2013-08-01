@@ -151,18 +151,18 @@ function foo ( nomen, count, domElement ) {
     // magic here...
 }
 
-foo( "aleph", 12, new Image );
+foo( 'aleph', 12, new Image );
 
 // Bad, feels like suffocation:
 function foo(nomen,count,domElement){/*magic here*/};
-foo("aleph",12,new Image);
+foo('aleph',12,new Image);
 
 // Good and readable
 function foo(nomen, count, domElement) {
     // magic here...
 }
 
-foo("aleph", 12, new Image);
+foo('aleph', 12, new Image);
 
 ```
 
@@ -182,7 +182,7 @@ Use single var declaration:
 ```javascript
 function myFunc() {
     var i = 42,
-        foo = "bar",
+        foo = 'bar',
         emptyObj = {},
         tmp;
 
@@ -478,6 +478,3 @@ Full list of properties grouped in this order:
     transition: transform 150ms linear;
 }
 ```
-
-
-  
