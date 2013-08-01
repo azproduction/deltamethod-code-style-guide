@@ -47,12 +47,12 @@ this.code().is('commented out!');
 
 If you comment out a piece of code instead of deleting/replacing it, and then commit the result, there must be a reason for that comment staying in the codebase.
 
-Possible valid reasons to keep some old code in comments:
+Possible **valid** reasons to keep some old code in comments:
 
   * small changes likely to cause regressions;
   * code line/block that is often being used for debugging;
 
-Some ** invalid reasons:
+Some **non-valid** reasons:
 
   * obvious bugfix in the old code;
   * big refactoring that changes a significant part of the code
