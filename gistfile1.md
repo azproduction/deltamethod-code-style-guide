@@ -57,6 +57,12 @@ Some **non-valid** reasons:
   * obvious bugfix in the old code;
   * big refactoring that changes a significant part of the code
 
+#### Use FIXME and TODO
+
+In your comments, use two special keywords:
+  * ``TODO: description`` to describe what should be done later
+  * ``FIXME`` to mark bugs you cannot fix right now
+
 #### Good Practices
 
 **Always comment complex parts of your code**.
@@ -385,6 +391,12 @@ We use LESS to create CSS for most components, but the styleguide rules usually 
     border: solid 1px #000;
 }
 ```
+### Inline CSS
+We do not use ``style="..."`` attribute with our HTML tags and avoid working it from JavaScript.
+If you need a small CSS adjustment, create a BEM modifier for your block/element.
+
+There are some legitimate cases when you need that property; you almost never see them in real life, and you don't want to.
+
 ### Selectors
 
 We follow BEM methodology and naming conventions.
