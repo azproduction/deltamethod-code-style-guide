@@ -387,7 +387,15 @@ every LESS file should import global vars in the beginning:
 ```less
 @import 'global-variables.less';
 ```
+in ```@block``` variable should be defined BEM block specified for that LESS file
 
+```less
+@block: ~".dm-modal";
+
+@{block} {
+ // some styles here
+}
+```
 
 ### Indentation
 
