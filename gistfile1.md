@@ -379,6 +379,16 @@ Always close your tags even if they are **void elements**; this does not affect 
 
 We use LESS to create CSS for most components, but the styleguide rules usually apply to both.
 
+### CSS
+
+### LESS
+every LESS file should import global vars in the beginning:
+
+```less
+@import 'global-variables.less';
+```
+
+
 ### Indentation
 
 4 spaces indentation inside a rule block, curly brackets similar to JS:
