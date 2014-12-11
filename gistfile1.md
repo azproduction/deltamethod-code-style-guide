@@ -150,6 +150,7 @@ var single = (function() {
 
 ### ECMAScript5 Methods
 If they are supported by browser, use ES5 instead of jQuery methods.
+
 ```Array.prototype.forEach()``` instead of ```$.each()```
 
 
@@ -586,3 +587,28 @@ Full list of properties grouped in this order:
     transition: transform 150ms linear;
 }
 ```
+
+
+### File Structure
+
+#### Pages file structure
+
+Every ```Pages``` folder has its name camel cased. ```tableContent```
+
+Inside of every folder there is one LESS, one HTML and one JavaScript file for that particular page.
+
+Additionally, it can contain a ```Blocks``` folder. 
+
+#### Blocks file structure
+
+```Blocks``` contain one LESS, Javascript and one or HTML files. 
+
+Naming for blocks is camel casing as well, except in case there is more than one HTML file. In that case, first one should be just camel cased (as a block name) and every additional one has an element name:
+
+```dynamicRule.html``` is the first HTML, second one is ```dynamicRule__condition.html``` 
+
+
+
+
+
+
