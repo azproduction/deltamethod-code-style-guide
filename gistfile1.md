@@ -331,6 +331,26 @@ Try to use only single-level methods in your components — unless you absolutel
 
 Be careful playing with ``this`` inside components; rely on default bindings provided by the framework unless you really undestand the difference between constructor and instance properties in your specific case.
 
+### RequireJS
+
+RequireJS format, full path:
+
+```javascript
+define(function(require) {
+    require('css!pages/generalSettings/generalSettings.css');
+    
+    var defineComponent = require('defineComponent'),
+        dynamicPopup = require('ui/dynamicPopup/dynamicPopup'),
+        SampleTable = require('pages/createNewTable/blocks/sampleTable/sampleTable'),
+        logoImageTemplate = require('text!pages/generalSettings/generalSettings__logoImage.html');
+});
+```
+Relative require is also possible within the same component or its blocks like this:
+
+```javascript
+require('css!./generalSettings.css');
+```
+
 ## HTML
 
 ### Doctype
