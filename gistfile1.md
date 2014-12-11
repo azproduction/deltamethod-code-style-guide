@@ -151,7 +151,7 @@ var single = (function() {
 ### ECMAScript5 Methods
 If they are supported by browser, use ES5 instead of jQuery methods.
 
-```Array.prototype.forEach()``` instead of ```$.each()```
+```Array.prototype.forEach()``` instead of ```$.each()```.
 
 
 ### Functions
@@ -203,7 +203,7 @@ function myFunc() {
 ```
 
 Individual variables still can be introduced later in the function body, especially when it comes to loop control vars.
-Variables should always be declared on the beginning of a function.
+Variables should be always declared in the beginning of a function.
 
 ### Conditons And Loops
 
@@ -338,6 +338,7 @@ Try to use only single-level methods in your components — unless you absolutel
 
 Be careful playing with ``this`` inside components; rely on default bindings provided by the framework unless you really undestand the difference between constructor and instance properties in your specific case.
 
+
 ### Modularization
 
 Simplified CommonJS wrapping. Full path should be used in most cases:
@@ -357,6 +358,7 @@ Relative require is also possible within the same component or its blocks like t
 ```javascript
 require('css!./generalSettings.css');
 ```
+
 
 ### MVC
 
@@ -406,11 +408,13 @@ Always close your tags even if they are **void elements**; this does not affect 
 <br />
 ```
 
+
 ## CSS/LESS
 
 We use LESS to create CSS for most components, but the styleguide rules usually apply to both.
 
 ### LESS
+
 every LESS file should import global vars in the beginning:
 
 ```less
@@ -479,6 +483,7 @@ Component specific modifiers are included in the bottom of a LESS file as a .les
 ```
 
 ### CSS
+
 #### Support
 
 Styles should support las ten versions of Firefox and last two versions of Chrome. IE and Safari are NOT supported.
@@ -492,7 +497,6 @@ width: -moz-calc(100% ~"-" @modalTitleIndentRight);
 width: -webkit-calc(100% ~"-" @modalTitleIndentRight);
 width: calc(100% ~"-" @modalTitleIndentRight);
  ```
- 
 
 #### Indentation
 
@@ -605,7 +609,6 @@ Full list of properties grouped in this order:
     transition: transform 150ms linear;
 }
 ```
-
 
 ## File Structure
 
