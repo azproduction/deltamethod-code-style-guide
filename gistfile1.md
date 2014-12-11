@@ -475,8 +475,22 @@ Component specific modifiers are included in the bottom of a LESS file as a .les
 ```
 
 ### CSS
+#### Support
 
-### Indentation
+Styles should support las ten versions of Firefox and last two versions of Chrome. IE and Safari are NOT supported.
+
+##### Prefix use
+
+If necessary for a CSS property, use a prefix:
+
+```css
+width: -moz-calc(100% ~"-" @modalTitleIndentRight);
+width: -webkit-calc(100% ~"-" @modalTitleIndentRight);
+width: calc(100% ~"-" @modalTitleIndentRight);
+ ```
+ 
+
+#### Indentation
 
 4 spaces indentation inside a rule block, curly brackets similar to JS:
 
@@ -488,20 +502,20 @@ Component specific modifiers are included in the bottom of a LESS file as a .les
     border: solid 1px #000;
 }
 ```
-### Inline CSS
+#### Inline CSS
 We do not use ``style="..."`` attribute with our HTML tags and avoid working it from JavaScript.
 If you need a small CSS adjustment, create a BEM modifier for your block/element.
 
 There are some legitimate cases when you need that property; you almost never see them in real life, and you don't want to.
 
-### Selectors
+#### Selectors
 
 We follow BEM methodology and naming conventions.
 Because of that, 90% of our CSS should use a single class or a combination of 2 classes as a selector.
 
 See [BEM Cheatsheet](https://gist.github.com/ingdir/0b211b9253c376f9cfa5) for more info on BEM and CSS naming conventions we use.
 
-### Order Of Properties Inside A Rule
+#### Order Of Properties Inside A Rule
 
 We try to group all properties into 7 categories, in this order:
 
