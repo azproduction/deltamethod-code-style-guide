@@ -379,8 +379,6 @@ Always close your tags even if they are **void elements**; this does not affect 
 
 We use LESS to create CSS for most components, but the styleguide rules usually apply to both.
 
-### CSS
-
 ### LESS
 every LESS file should import global vars in the beginning:
 
@@ -401,7 +399,6 @@ Block's elements should be nested inside of block with an ```& ```. Same rule ap
 ```less
 @{block} {
  &__element
- 
  // some styles for element here
   &_modifier  {
    // some styles for modifier here
@@ -430,8 +427,25 @@ Good:
  // some styles here
 }
 ```
+Pseudoclass are nested inside of an element:
 
+```less
+&__drag {
+    cursor: move;
+    
+    &:hover {
+        color: @colourOrange1; 
+    }
+}
+```
 
+Component specific modifiers are included in the bottom of a LESS file as a .less-part separate file.
+
+```less
+@import (less) "../rec/rec-table.less-part";
+```
+
+### CSS
 
 ### Indentation
 
