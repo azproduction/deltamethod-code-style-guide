@@ -338,9 +338,9 @@ Try to use only single-level methods in your components — unless you absolutel
 
 Be careful playing with ``this`` inside components; rely on default bindings provided by the framework unless you really undestand the difference between constructor and instance properties in your specific case.
 
-### RequireJS
+### Modularization
 
-RequireJS format, full path:
+Simplified CommonJS wrapping. Full path should be used in most cases:
 
 ```javascript
 define(function(require) {
@@ -357,6 +357,10 @@ Relative require is also possible within the same component or its blocks like t
 ```javascript
 require('css!./generalSettings.css');
 ```
+
+### MVC
+
+MVC is not used, but component-based approach. Components may have models. Those have to be defined in a special ```models``` folder within the component.
 
 ## HTML
 
