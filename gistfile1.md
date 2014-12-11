@@ -594,18 +594,15 @@ Full list of properties grouped in this order:
 #### Pages file structure
 
 Every ```Pages``` folder has its name camel cased. ```tableContent```
-
-Inside of every folder there is one LESS, one HTML and one JavaScript file for that particular page.
-
+Inside of every folder there is one LESS, one HTML and one JavaScript file for the page.
 Additionally, it can contain a ```Blocks``` folder. 
 
 #### Blocks file structure
 
-```Blocks``` contain one LESS, Javascript and one or HTML files. 
+```Blocks``` contain one LESS, one Javascript and one or more HTML files. 
 
-Naming for blocks is camel casing as well, except in case there is more than one HTML file. In that case, first one should be just camel cased (as a block name) and every additional one has an element name:
-
-```dynamicRule.html``` is the first HTML, second one is ```dynamicRule__condition.html``` 
+Naming for blocks is camel casing, except in case if there is more than one HTML file. In that case, first HTML should be camel cased (as a block name) and every additional one has an additional BEM element suffix:
+```dynamicRule.html``` is the first HTML, the second one is ```dynamicRule__condition.html``` 
 
 
 
