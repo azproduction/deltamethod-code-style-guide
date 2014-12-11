@@ -148,6 +148,11 @@ var single = (function() {
 })();
 ```
 
+### ECMAScript5 Methods
+If they are supported by browser, use ES5 instead of jQuery methods.
+```Array.prototype.forEach()``` instead of ```$.each()```
+
+
 ### Functions
 
 #### Declaration and Call
@@ -197,6 +202,7 @@ function myFunc() {
 ```
 
 Individual variables still can be introduced later in the function body, especially when it comes to loop control vars.
+Variables should always be declared on the beginning of a function.
 
 ### Conditons And Loops
 
@@ -342,7 +348,7 @@ define(function(require) {
     var defineComponent = require('defineComponent'),
         dynamicPopup = require('ui/dynamicPopup/dynamicPopup'),
         SampleTable = require('pages/createNewTable/blocks/sampleTable/sampleTable'),
-        logoImageTemplate = require('text!pages/generalSettings/generalSettings__logoImage.html');
+        generalSettingsTemplate = require('text!pages/generalSettings/generalSettings.html');
 });
 ```
 Relative require is also possible within the same component or its blocks like this:
