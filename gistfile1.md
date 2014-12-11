@@ -391,40 +391,42 @@ In ```@block``` variable should be defined BEM block specified for that LESS fil
 @block: ~".dm-modal";
 
 @{block} {
- // some styles here
+    // some styles here
 }
 ```
 
 Block's elements should be nested inside of block with an ```& ```. Same rule applies for modifiers. They should be nested inside of an element
 ```less
 @{block} {
- &__element
- // some styles for element here
-  &_modifier  {
-   // some styles for modifier here
-  }
+    &__element
+        // some styles for element here
+    &_modifier  {
+       // some styles for modifier here
+    }
 }
 ```
 
 Bad:
 ```less
 @{block} {
- &__element
-  &-name {
-  // some styles here
-  }
+    &__element
+        &-name {
+            // some styles here
+        }
+    }
 }
 ```
 
 Good:
 ```less
 @{block} {
- &__element
-  // some styles here
+    &__element
+        // some styles here
+    }
 }
 
 &__element-name {
- // some styles here
+    // some styles here
 }
 ```
 Pseudoclass are nested inside of an element:
