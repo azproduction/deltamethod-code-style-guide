@@ -589,15 +589,15 @@ Full list of properties grouped in this order:
 ```
 
 
-### File Structure
+## File Structure
 
-#### Pages file structure
+### Pages file structure
 
 Every ```Pages``` folder has its name camel cased. ```tableContent```
 Inside of every folder there is one LESS, one HTML and one JavaScript file for the page.
 Additionally, it can contain a ```blocks``` folder. 
 
-#### Blocks file structure
+### Blocks file structure
 
 ```blocks``` contain one LESS, one Javascript and one or more HTML files. 
 
@@ -607,7 +607,7 @@ In that case, first HTML should be camel cased (as a block name) and every addit
 
 ```dynamicRule.html``` is the first HTML, the second one is ```dynamicRule__condition.html``` 
 
-#### Models file structure
+### Models file structure
 
 Models are located inside of ```models``` folder. 
 
