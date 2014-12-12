@@ -494,9 +494,9 @@ Styles should support las ten versions of Firefox and last two versions of Chrom
 If necessary for a CSS property, use a prefix:
 
 ```css
-width: -moz-calc(100% ~"-" @modalTitleIndentRight);
-width: -webkit-calc(100% ~"-" @modalTitleIndentRight);
-width: calc(100% ~"-" @modalTitleIndentRight);
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: content-box;
  ```
 
 #### Indentation
