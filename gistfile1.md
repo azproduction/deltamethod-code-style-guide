@@ -435,8 +435,9 @@ Block's elements should be nested inside of block with an ```& ```. Same rule ap
 @{block} {
     &__element
         // some styles for element here
-    &_modifier  {
-       // some styles for modifier here
+        &_modifier  {
+           // some styles for modifier here
+        }
     }
 }
 ```
