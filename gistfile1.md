@@ -621,7 +621,7 @@ Additionally, it can contain a ```blocks``` folder.
 
 ### Blocks file structure
 
-```blocks``` contain one LESS, one Javascript and one or more HTML files. 
+Every ```blocks``` folder contains one LESS, one Javascript and one or more HTML files. 
 
 Naming for ```blocks``` files is camel casing, except in case if there is more than one HTML file. 
 
