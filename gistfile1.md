@@ -615,7 +615,7 @@ Full list of properties grouped in this order:
 
 ### Pages file structure
 
-Every ```Pages``` folder has its name camel cased. ```tableContent```
+Every ```pages``` folder has its name camel cased. ```tableContent```
 Inside of every folder there is one LESS, one HTML and one JavaScript file for the page.
 Additionally, it can contain a ```blocks``` folder. 
 
