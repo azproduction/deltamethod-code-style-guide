@@ -408,18 +408,18 @@ Always close your tags even if they are **void elements**; this does not affect 
 <br />
 ```
 
+### LESS
 
-## CSS/LESS
 
 We use LESS to create CSS for most components, but the styleguide rules usually apply to both.
 
-### LESS
-
-every LESS file should import global vars in the beginning:
+every LESS file should import ```global-variables.less``` in the beginning:
 
 ```less
 @import 'global-variables.less';
 ```
+This is the only global LESS file in the project. It is a library for variables and mixins that are used through the whole project (colors, default font specifications and other). Since it doesn't contain any styles, when compiled, ```global-variables.less``` doesn't output anything in its CSS file.
+
 In ```@block``` variable should be defined BEM block specified for that LESS file
 
 ```less
@@ -431,6 +431,7 @@ In ```@block``` variable should be defined BEM block specified for that LESS fil
 ```
 
 Block's elements should be nested inside of block with an ```& ```. Same rule applies for modifiers. They should be nested inside of an element
+
 ```less
 @{block} {
     &__element
@@ -441,8 +442,8 @@ Block's elements should be nested inside of block with an ```& ```. Same rule ap
     }
 }
 ```
+```&``` is a shortcut for BEM block or element entity, not just a string, so this is bad:
 
-Bad:
 ```less
 @{block} {
     &__element
@@ -453,7 +454,8 @@ Bad:
 }
 ```
 
-Good:
+This is how ```&``` replacing should be done:
+
 ```less
 @{block} {
     &__element
@@ -465,7 +467,7 @@ Good:
     // some styles here
 }
 ```
-Pseudoclass are nested inside of an element:
+Pseudoclasses are nested inside of an element or a block:
 
 ```less
 &__drag {
@@ -484,10 +486,6 @@ Component specific modifiers are included in the bottom of a LESS file as a .les
 ```
 
 ### CSS
-
-#### Support
-
-Styles should support las ten versions of Firefox and last two versions of Chrome. IE and Safari are NOT supported.
 
 ##### Prefix use
 
@@ -610,6 +608,9 @@ Full list of properties grouped in this order:
     transition: transform 150ms linear;
 }
 ```
+#### Support
+
+Styles should support last ten versions of Firefox and last two versions of Chrome. IE and Safari are NOT supported.
 
 ## File Structure
 
