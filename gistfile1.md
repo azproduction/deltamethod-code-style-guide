@@ -461,10 +461,10 @@ This is how ```&``` replacing should be done:
     &__element
         // some styles here
     }
-}
 
-&__element-name {
-    // some styles here
+    &__element-name {
+        // some styles here
+    }
 }
 ```
 Pseudoclasses are nested inside of an element or a block:
@@ -485,6 +485,14 @@ Component specific modifiers are included in the bottom of a LESS file as a .les
 @import (less) "../rec/rec-table.less-part";
 ```
 
+#### X-responsable grid
+
+```x-responsable-grid.less``` is a grid system with mixins used for aligning content in components and pages.  
+It creates responsive designed rows and columns with ```.row()``` and ```.column()``` mixins. 
+Every row has 24 columns.
+See [x-responsable-grid](https://github.com/ingdir/x-responsable-grid) for more details
+
+
 ### CSS
 
 ##### Prefix use
@@ -492,10 +500,11 @@ Component specific modifiers are included in the bottom of a LESS file as a .les
 If necessary for a CSS property, use a prefix:
 
 ```css
--webkit-box-sizing: border-box;
--moz-box-sizing: border-box;
-box-sizing: content-box;
+ -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+ -moz-box-shadow: 3px 3px 5px 6px #ccc;
+ box-shadow: 3px 3px 5px 6px #ccc;
  ```
+ However, some properties don't need prefixes with newer versions of browsers. 
 
 #### Indentation
 
@@ -505,7 +514,6 @@ box-sizing: content-box;
 .dm-block {
     position: relative;
     top: 5px;
-    
     border: solid 1px #000;
 }
 ```
@@ -515,12 +523,14 @@ If you need a small CSS adjustment, create a BEM modifier for your block/element
 
 There are some legitimate cases when you need that property; you almost never see them in real life, and you don't want to.
 
-#### Selectors
+#### Naming
 
 We follow BEM methodology and naming conventions.
 Because of that, 90% of our CSS should use a single class or a combination of 2 classes as a selector.
 
 See [BEM Cheatsheet](https://gist.github.com/ingdir/0b211b9253c376f9cfa5) for more info on BEM and CSS naming conventions we use.
+
+Non-BEM class names are allowed only in 3rd party code.
 
 #### Order Of Properties Inside A Rule
 
@@ -610,7 +620,8 @@ Full list of properties grouped in this order:
 ```
 #### Support
 
-Styles should support last ten versions of Firefox and last two versions of Chrome. IE and Safari are NOT supported.
+Styles should support version of Firefox that is one year old and last two versions of Chrome. IE and Safari are NOT supported.
+Yandex browser and Opera are also supported.
 
 ## File Structure
 
@@ -618,17 +629,18 @@ Styles should support last ten versions of Firefox and last two versions of Chro
 
 Every ```pages``` folder has its name camel cased. ```tableContent```
 Inside of every folder there is one LESS, one HTML and one JavaScript file for the page.
-Additionally, it can contain a ```blocks``` folder. 
 
 ### Blocks file structure
-
+#### Local blocks
 Every ```blocks``` folder contains one LESS, one Javascript and one or more HTML files. 
-
 Naming for ```blocks``` files is camel casing, except in case if there is more than one HTML file. 
-
 In that case, first HTML should be camel cased (as a block name) and every additional one has an additional BEM element suffix:
+```dynamicRule.html``` is the first HTML, the second one is ```dynamicRule__condition.html```.
+Additionally, it may have a ```blocks``` folder that contains local subblocks that are not used anywhere else except on that page.
+If there's a requirement for a page's block to be used on multiple pages, it can be converted to a reusable block. 
 
-```dynamicRule.html``` is the first HTML, the second one is ```dynamicRule__condition.html``` 
+#### Reusable blocks
+These blocks can't contain subblocks. Name should be a BEM block name for that component, but without the prefix, no camel casing.
 
 ### Models file structure
 
