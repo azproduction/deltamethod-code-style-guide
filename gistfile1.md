@@ -149,7 +149,7 @@ var single = (function() {
 ```
 
 ### ECMAScript5 Methods
-If they are supported by browser, use ES5 instead of jQuery methods.
+If they are supported by the browser, use ES5 instead of jQuery methods.
 
 ```Array.prototype.forEach()``` instead of ```$.each()```.
 
@@ -189,7 +189,7 @@ foo('aleph', 12, new Image);
 
 Always use var statements.
 
-Use single var declaration:
+Multiple ```var``` declarations is ok:
 
 ```javascript
 function myFunc() {
@@ -198,12 +198,14 @@ function myFunc() {
         emptyObj = {},
         tmp;
 
-    // do some good
+    if (condition) {
+        // do some good
+        var num = i;
+    }
 }
 ```
 
 Individual variables still can be introduced later in the function body, especially when it comes to loop control vars.
-Variables should be always declared in the beginning of a function.
 
 ### Conditons And Loops
 
@@ -361,7 +363,7 @@ require('css!./generalSettings.css');
 
 ### MVC
 
-MVC is not used, but component-based approach. Components may have models. Those have to be defined in a special ```models``` folder within the component.
+MVC is used on some pages, but not required. Instead, there are components which may have models. Those have to be defined in a special ```models``` folder within the component.
 
 ## HTML
 
@@ -644,7 +646,7 @@ Additionally, it may have a ```blocks``` folder that contains local subblocks th
 If there's a requirement for a page's block to be used on multiple pages, it can be converted to a reusable block. 
 
 #### Reusable blocks
-These blocks can't contain subblocks. Name should be a BEM block name for that component, but without the prefix, no camel casing.
+These blocks can't contain subblocks. Name should be a BEM block name for that component, but without the prefix and no camel casing.
 
 ### Models file structure
 
