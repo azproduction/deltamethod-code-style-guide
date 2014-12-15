@@ -30,7 +30,6 @@ if (i === 42) {
     // notify all the good people
     sendMessage('got it!');
 }
-
 ```
 
 Multiline comments should be used for JSDoc mostly, or for this trick when you need to comment and un-comment parts of your code frequently (they differ by 1 character):
@@ -127,6 +126,7 @@ For private methods and properties, use names starting with underscore, like ``_
 #### Constructors
 
 Constructor names should begin with a capital letter:
+
 ```javascript
 function MyConstructor() {
    // some magic
@@ -175,7 +175,6 @@ function foo(nomen, count, domElement) {
 }
 
 foo('aleph', 12, new Image);
-
 ```
 
 #### Anonymous Functions To Be Called In-Place
@@ -191,6 +190,7 @@ foo('aleph', 12, new Image);
 Always use var statements.
 
 Use single var declaration:
+
 ```javascript
 function myFunc() {
     var i = 42,
@@ -208,6 +208,7 @@ Variables should be always declared in the beginning of a function.
 ### Conditons And Loops
 
 Add one space after keywords like ``if``, ``for``, ``while``.
+
 ```javascript
 if (weekDay === 'Friday') {
     // do party!
@@ -246,7 +247,6 @@ Do not use nested ternaries.
 var properties = {
     happiness: origin === 'Deltamethod' ? 'yes' : 'not really'
 };
-
 ```
 
 ### console.log
@@ -272,6 +272,7 @@ $(e.target).find('.button');
 ```
 
 Avoid too general selectors even as parts of your selection chain:
+
 ```javascript
 // bad, too general
 $node.find('div').find('.section');
@@ -290,7 +291,6 @@ Cache your collections:
 var $this = $(this);
 
 // reuse $this here
-
 ```
 
 Chain your code!
@@ -308,7 +308,6 @@ this.$node
         .addClass(mod)
     .end()
     .trigger('allDone');
-
 ```
 
 #### jQuery Built-In Helpers
@@ -353,12 +352,12 @@ define(function(require) {
         generalSettingsTemplate = require('text!pages/generalSettings/generalSettings.html');
 });
 ```
+
 Relative require is also possible within the same component or its blocks like this:
 
 ```javascript
 require('css!./generalSettings.css');
 ```
-
 
 ### MVC
 
@@ -389,6 +388,7 @@ For long class attributes, use line breaks to separate class names, this is supp
     text
 </div>
 ```
+
 ### Additional requirements:
 
   * Lowercase tag and attribute names
@@ -418,6 +418,7 @@ every LESS file should import ```global-variables.less``` in the beginning:
 ```less
 @import 'global-variables.less';
 ```
+
 This is the only global LESS file in the project. It is a library for variables and mixins that are used through the whole project (colors, default font specifications and other). Since it doesn't contain any styles, when compiled, ```global-variables.less``` doesn't output anything in its CSS file.
 
 In ```@block``` variable should be defined BEM block specified for that LESS file
@@ -442,6 +443,7 @@ Block's elements should be nested inside of block with an ```& ```. Same rule ap
     }
 }
 ```
+
 ```&``` is a shortcut for BEM block or element entity, not just a string, so this is bad:
 
 ```less
@@ -492,7 +494,6 @@ It creates responsive designed rows and columns with ```.row()``` and ```.column
 Every row has 24 columns.
 See [x-responsable-grid](https://github.com/ingdir/x-responsable-grid) for more details
 
-
 ### CSS
 
 ##### Prefix use
@@ -504,6 +505,7 @@ If necessary for a CSS property, use a prefix:
  -moz-box-shadow: 3px 3px 5px 6px #ccc;
  box-shadow: 3px 3px 5px 6px #ccc;
  ```
+ 
  However, some properties don't need prefixes with newer versions of browsers. 
 
 #### Indentation
@@ -517,6 +519,7 @@ If necessary for a CSS property, use a prefix:
     border: solid 1px #000;
 }
 ```
+
 #### Inline CSS
 We do not use ``style="..."`` attribute with our HTML tags and avoid working it from JavaScript.
 If you need a small CSS adjustment, create a BEM modifier for your block/element.
@@ -618,6 +621,7 @@ Full list of properties grouped in this order:
     transition: transform 150ms linear;
 }
 ```
+
 #### Support
 
 Styles should support version of Firefox that is one year old and last two versions of Chrome. IE and Safari are NOT supported.
