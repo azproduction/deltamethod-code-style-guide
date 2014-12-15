@@ -645,9 +645,9 @@ Yandex browser and Opera are also supported (and every Blink engine browser).
 Every ```pages``` folder has its name camelCased. ```tableContent```
 Inside of every folder there is one LESS, one HTML and one JavaScript file for the page.
 
-### Blocks file structure
 
-```blocks``` folder contains local subblocks that are not used anywhere else except on that page.
+### Blocks file structure
+Additionally, ```pages``` folder can contain ```blocks``` folder that contains local subblocks which are not used anywhere else except on that page.
 If there's a requirement for a page's block to be used on multiple pages, it can be converted into a reusable block. 
 
 #### Local blocks
