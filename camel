@@ -11,6 +11,7 @@ Until we hire Lea Verou, it's all spaces, bro.
 Use 4 spaces for indentation.
 
 #### Quotes
+
 Use single quotes, unless you're writing JSON:
 
 ```javascript
@@ -80,6 +81,7 @@ banana(grape(apple(12), 'red'), quantum);
 ```
 
 #### Operations
+
 Add spaces around arithmetical operations and logical conditions:
 
 ```javascript
@@ -91,6 +93,7 @@ var q = a ? 12 : 'none';
 ```
 
 #### Line Breaks
+
 Lines should break at about 80 symbols after the first non-whitespace character.
 
 There are obvious exceptions:
@@ -134,6 +137,7 @@ function MyConstructor() {
 ```
 
 #### Singletons
+
 Whenever you need a singleton, use anonymous function execution as it allows for some private variables:
 
 ```javascript
@@ -149,6 +153,7 @@ var single = (function() {
 ```
 
 ### ECMAScript5 Methods
+
 If they are supported by the browser, use ES5 instead of jQuery methods.
 
 ```Array.prototype.forEach()``` instead of ```$.each()```.
@@ -157,6 +162,7 @@ If they are supported by the browser, use ES5 instead of jQuery methods.
 ### Functions
 
 #### Declaration and Call
+
 ```javascript
 // Bad, too loose
 function foo ( nomen, count, domElement ) {
@@ -368,9 +374,11 @@ MVC is used on some pages, but not required. Instead, there are components which
 ## HTML
 
 ### Doctype
+
 Use HTML5 doctype for all your documents.
 
 ### HTML5 elements
+
 Use of HTML5 new tags is **not recommended**.
 CSS classnames is how you add semantics to your markup.
 
@@ -411,7 +419,6 @@ Always close your tags even if they are **void elements**; this does not affect 
 ```
 
 ### LESS
-
 
 We use LESS to create CSS for most components, but the styleguide rules usually apply to both.
 
@@ -523,6 +530,7 @@ If necessary for a CSS property, use a prefix:
 ```
 
 #### Inline CSS
+
 We do not use ``style="..."`` attribute with our HTML tags and avoid working it from JavaScript.
 If you need a small CSS adjustment, create a BEM modifier for your block/element.
 
@@ -633,20 +641,21 @@ Yandex browser and Opera are also supported.
 
 ### Pages file structure
 
-Every ```pages``` folder has its name camel cased. ```tableContent```
+Every ```pages``` folder has its name camelCased. ```tableContent```
 Inside of every folder there is one LESS, one HTML and one JavaScript file for the page.
 
 ### Blocks file structure
 #### Local blocks
+
 Every ```blocks``` folder contains one LESS, one Javascript and one or more HTML files. 
-Naming for ```blocks``` files is camel casing, except in case if there is more than one HTML file. 
-In that case, first HTML should be camel cased (as a block name) and every additional one has an additional BEM element suffix:
+Naming for ```blocks``` files is camelCasing, except in case if there is more than one HTML file. 
+In that case, first HTML should be camelCased (as a block name) and every additional one has an additional BEM element suffix:
 ```dynamicRule.html``` is the first HTML, the second one is ```dynamicRule__condition.html```.
 Additionally, it may have a ```blocks``` folder that contains local subblocks that are not used anywhere else except on that page.
 If there's a requirement for a page's block to be used on multiple pages, it can be converted to a reusable block. 
 
 #### Reusable blocks
-These blocks can't contain subblocks. Name should be a BEM block name for that component, but without the prefix and no camel casing.
+These blocks can't contain subblocks. Name should be a BEM block name for that component, but without the prefix and no camelCasing.
 
 ### Models file structure
 
