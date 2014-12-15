@@ -431,12 +431,11 @@ every LESS file should import ```global-variables.less``` in the beginning:
 This is the only global LESS file in the project. It's a library for variables and mixins that are used through the whole project (colors, default font specifications and other). 
 Since it doesn't contain any styles, when compiled, ```global-variables.less``` doesn't output anything in its CSS file.
 
-In ```@block``` variable should be defined BEM block specified for that LESS file.
+In ```@block``` variable should be defined BEM block specified for that LESS file. Preferred way to declare a ```@block``` variable is inside of a block, so it becomes a local variable:
 
 ```less
-@block: ~".dm-modal";
-
-@{block} {
+.dm-modal {
+    @block: ~".dm-modal";
     // some styles here
 }
 ```
