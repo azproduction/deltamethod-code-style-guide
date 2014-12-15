@@ -61,7 +61,7 @@ Some **non-valid** reasons:
 
 In your comments, use two special keywords:
   * ``TODO: description`` to describe what should be done later
-  * ``FIXME`` to mark bugs you cannot fix right now
+  * ``FIXME`` to mark bugs you cannot fix right now.
 
 #### Good Practices
 
@@ -98,7 +98,7 @@ Lines should break at about 80 symbols after the first non-whitespace character.
 
 There are obvious exceptions:
   * long string literals
-  * code that should stay on 1 line for technical reasons
+  * code that should stay on 1 line for technical reasons.
   
 However, using long lines for complex conditions is bad practice; we're not in a Perl one-liner competition.
 
@@ -154,7 +154,7 @@ var single = (function() {
 
 ### ECMAScript5 Methods
 
-If they are supported by the browser, use ES5 instead of jQuery methods.
+Whenever possible, use ES5 instead of jQuery methods. For example:
 
 ```Array.prototype.forEach()``` instead of ```$.each()```.
 
@@ -260,7 +260,7 @@ var properties = {
 ### console.log
 
 Use of ``console.log()`` is only allowed inside error handlers (such as try/catch or Ajax error handlers).
-This is only possible if there is a shim in the code that prevents browser from firing 
+This is only possible if there is a shim in the code that prevents browser from firing. 
 In normal code, no console.log should be used.
 
 
@@ -289,7 +289,7 @@ $node.find('div').find('.section');
 
 Use names starting with ``$`` for:
   * variables that hold references to jQuery collections
-  * functions that return jQuery collections
+  * functions that return jQuery collections.
 
 #### Good Practices
 
@@ -348,7 +348,7 @@ Be careful playing with ``this`` inside components; rely on default bindings pro
 
 ### Modularization
 
-Simplified CommonJS wrapping. Full path should be used in most cases:
+We use RequireJS with simplified CommonJS wrapping. Full path should be used in most cases:
 
 ```javascript
 define(function(require) {
@@ -361,7 +361,7 @@ define(function(require) {
 });
 ```
 
-Relative require is also possible within the same component or its blocks like this:
+Relative path is also possible within the same component or its blocks like this:
 
 ```javascript
 require('css!./generalSettings.css');
@@ -369,7 +369,7 @@ require('css!./generalSettings.css');
 
 ### MVC
 
-MVC is used on some pages, but not required. Instead, there are components which may have models. Those have to be defined in a special ```models``` folder within the component.
+MVC is used on some pages, but not required. Instead, there are components which may have non-global encapsulated models. They have to be defined in a special ```models``` folder within the component.
 
 ## HTML
 
@@ -404,7 +404,7 @@ For long class attributes, use line breaks to separate class names, this is supp
   * Lowercase tag and attribute names
   * Use double quotes for attribute values
   * Encode HTML entities in attribute values
-  * Do not use **attribute minimization** (attributes without values)
+  * Do not use **attribute minimization** (attributes without values).
 
 Always close your tags even if they are **void elements**; this does not affect rendering but improves readability.
 
@@ -428,9 +428,10 @@ every LESS file should import ```global-variables.less``` in the beginning:
 @import 'global-variables.less';
 ```
 
-This is the only global LESS file in the project. It is a library for variables and mixins that are used through the whole project (colors, default font specifications and other). Since it doesn't contain any styles, when compiled, ```global-variables.less``` doesn't output anything in its CSS file.
+This is the only global LESS file in the project. It's a library for variables and mixins that are used through the whole project (colors, default font specifications and other). 
+Since it doesn't contain any styles, when compiled, ```global-variables.less``` doesn't output anything in its CSS file.
 
-In ```@block``` variable should be defined BEM block specified for that LESS file
+In ```@block``` variable should be defined BEM block specified for that LESS file.
 
 ```less
 @block: ~".dm-modal";
@@ -440,7 +441,7 @@ In ```@block``` variable should be defined BEM block specified for that LESS fil
 }
 ```
 
-Block's elements should be nested inside of block with an ```& ```. Same rule applies for modifiers. They should be nested inside of an element
+Block's elements should be nested inside of block with an ```& ```. Same rule applies for modifiers. They should be nested inside of an element.
 
 ```less
 @{block} {
@@ -490,7 +491,7 @@ Pseudoclasses are nested inside of an element or a block:
 }
 ```
 
-Component specific modifiers are included in the bottom of a LESS file as a .less-part separate file.
+Component specific modifiers are included in the bottom of a LESS file as a ```.less-part``` separate file.
 
 ```less
 @import (less) "../rec/rec-table.less-part";
@@ -498,10 +499,10 @@ Component specific modifiers are included in the bottom of a LESS file as a .les
 
 #### X-responsable grid
 
-```x-responsable-grid.less``` is a grid system with mixins used for aligning content in components and pages.  
+```x-responsable-grid.less``` is a grid system with mixins used for aligning content in components.  
 It creates responsive designed rows and columns with ```.row()``` and ```.column()``` mixins. 
 Every row has 24 columns.
-See [x-responsable-grid](https://github.com/ingdir/x-responsable-grid) for more details
+See [x-responsable-grid](https://github.com/ingdir/x-responsable-grid) for more details.
 
 ### CSS
 
@@ -635,7 +636,7 @@ Full list of properties grouped in this order:
 #### Support
 
 Styles should support version of Firefox that is one year old and last two versions of Chrome. IE and Safari are NOT supported.
-Yandex browser and Opera are also supported.
+Yandex browser and Opera are also supported (and every Blink engine browser).
 
 ## File Structure
 
@@ -645,14 +646,16 @@ Every ```pages``` folder has its name camelCased. ```tableContent```
 Inside of every folder there is one LESS, one HTML and one JavaScript file for the page.
 
 ### Blocks file structure
+
+```blocks``` folder contains local subblocks that are not used anywhere else except on that page.
+If there's a requirement for a page's block to be used on multiple pages, it can be converted into a reusable block. 
+
 #### Local blocks
 
 Every ```blocks``` folder contains one LESS, one Javascript and one or more HTML files. 
-Naming for ```blocks``` files is camelCasing, except in case if there is more than one HTML file. 
+Naming for ```blocks``` files is camelCasing, except in the case if there is more than one HTML file. 
 In that case, first HTML should be camelCased (as a block name) and every additional one has an additional BEM element suffix:
-```dynamicRule.html``` is the first HTML, the second one is ```dynamicRule__condition.html```.
-Additionally, it may have a ```blocks``` folder that contains local subblocks that are not used anywhere else except on that page.
-If there's a requirement for a page's block to be used on multiple pages, it can be converted to a reusable block. 
+```dynamicRule.html``` is the first HTML, the second one would be: ```dynamicRule__condition.html```.
 
 #### Reusable blocks
 These blocks can't contain subblocks. Name should be a BEM block name for that component, but without the prefix and no camelCasing.
