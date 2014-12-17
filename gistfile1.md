@@ -7,7 +7,7 @@ Yandex browser and Opera are also supported (and every Blink engine browser).
 
 ### Prefix use
 
-If necessary for a CSS property, use a prefix:
+If necessary, use a prefix for browser support:
 
 ```css
  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
@@ -667,6 +667,7 @@ Example of global block structure:
 ### Pages file structure
 
 Pages are components, just like global blocks, but the difference is that a page is a component where global blocks are attached on. Page always consists of multiple global (and optionally local) blocks components, while global blocks very rarely have their own local blocks.
+Pages are placed in ```commom/pages``` folder.
 Every ```pages``` folder has its name camelCased. For example: ```tableContent```
 Inside of every folder there is one LESS, one compiled CSS, one or more HTML and one JavaScript file for the page.
 Additionally, ```pages``` folder can contain ```blocks``` folder that contains local subblocks which are not used anywhere else except on that page. If there's a requirement for a page's block to be used on multiple pages, it can be converted into a reusable block.
@@ -696,6 +697,7 @@ tableContent
 |---tableContent__mapping-progress.html
 ```
 
-### Models file structure
+### Othe MVC things file structure
 
 Models are located inside of ```models``` folder. 
+Formatters are 
