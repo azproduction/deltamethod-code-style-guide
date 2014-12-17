@@ -700,4 +700,4 @@ tableContent
 ### Othe MVC things file structure
 
 Models are located inside of ```models``` folder. 
-Formatters are 
+Formatters are functions for two-way bindings, placed inside of rivets folder. They can be used for formatting dates, numbers, currencies and so on.  
