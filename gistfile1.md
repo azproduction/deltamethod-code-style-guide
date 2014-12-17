@@ -418,7 +418,7 @@ Always close your tags even if they are **void elements**; this does not affect 
 <br />
 ```
 
-### LESS
+## LESS
 
 We use LESS to create CSS for most components, but the styleguide rules usually apply to both.
 
@@ -496,16 +496,16 @@ Component specific modifiers are included in the bottom of a LESS file as a ```.
 @import (less) "../rec/rec-table.less-part";
 ```
 
-#### X-responsable grid
+### X-responsable grid
 
 ```x-responsable-grid.less``` is a grid system with mixins used for aligning content in components.  
 It creates responsive designed rows and columns with ```.row()``` and ```.column()``` mixins. 
 Every row has 24 columns.
 See [x-responsable-grid](https://github.com/ingdir/x-responsable-grid) for more details.
 
-### CSS
+## CSS
 
-##### Prefix use
+#### Prefix use
 
 If necessary for a CSS property, use a prefix:
 
@@ -517,7 +517,7 @@ If necessary for a CSS property, use a prefix:
  
  However, some properties don't need prefixes with newer versions of browsers. 
 
-#### Indentation
+### Indentation
 
 4 spaces indentation inside a rule block, curly brackets similar to JS:
 
@@ -529,14 +529,14 @@ If necessary for a CSS property, use a prefix:
 }
 ```
 
-#### Inline CSS
+### Inline CSS
 
 We do not use ``style="..."`` attribute with our HTML tags and avoid working it from JavaScript.
 If you need a small CSS adjustment, create a BEM modifier for your block/element.
 
 There are some legitimate cases when you need that property; you almost never see them in real life, and you don't want to.
 
-#### Naming
+### Naming
 
 We follow BEM methodology and naming conventions.
 Because of that, 90% of our CSS should use a single class or a combination of 2 classes as a selector.
@@ -545,7 +545,7 @@ See [BEM Cheatsheet](https://gist.github.com/ingdir/0b211b9253c376f9cfa5) for mo
 
 Non-BEM class names are allowed only in 3rd party code.
 
-#### Order Of Properties Inside A Rule
+### Order Of Properties Inside A Rule
 
 We try to group all properties into 7 categories, in this order:
 
