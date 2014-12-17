@@ -645,25 +645,40 @@ Full list of properties grouped in this order:
 ```
 ## File Structure
 
-### Pages file structure
-
-Every ```pages``` folder has its name camelCased. For example: ```tableContent```
-Inside of every folder there is one LESS, one compiled CSS, one or more HTML and one JavaScript file for the page.
-
-
 ### Blocks file structure
-Additionally, ```pages``` folder can contain ```blocks``` folder that contains local subblocks which are not used anywhere else except on that page.
-If there's a requirement for a page's block to be used on multiple pages, it can be converted into a reusable block. 
+Blocks are components that are added to page componnets. They can be global or local. Global blocks are reusable, which means they are  used in more than one page component. 
 
-#### Local blocks
+#### Internal structure of global blocks
+
+Global blocks are located in ```common/ui folder```.
+These blocks usually consist of one JavaScript, one HTML and one LESS + CSS file, but that can differ. None of these files are mandatory, so it is possible to have a global block that has only LESS + CSS part.
+Name of the block should be a BEM block name for that component, but without the prefix and no camelCasing.
+
+Example of local block structure: 
+select-palette
+|---select-palette.html
+|---select-palette.js
+|---select-palette.less
+    |---select-palette.css
+    
+#### Internal structure of local blocks
 
 Every ```blocks``` folder contains one LESS, one Javascript and one or more HTML files. 
 Naming for ```blocks``` files is camelCasing, except in the case if there is more than one HTML file. 
 In that case, first HTML should be camelCased (as a block name) and every additional one has an additional BEM element suffix:
 ```dynamicRule.html``` is the first HTML, the second one would be: ```dynamicRule__condition.html```.
 
-#### Reusable blocks
-These blocks can't contain subblocks. Name should be a BEM block name for that component, but without the prefix and no camelCasing.
+
+### Pages file structure
+
+Additionally, ```pages``` folder can contain ```blocks``` folder that contains local subblocks which are not used anywhere else except on that page.
+If there's a requirement for a page's block to be used on multiple pages, it can be converted into a reusable block. 
+
+Every ```pages``` folder has its name camelCased. For example: ```tableContent```
+Inside of every folder there is one LESS, one compiled CSS, one or more HTML and one JavaScript file for the page.
+
+
+
 
 ### Models file structure
 
