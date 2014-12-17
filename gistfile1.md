@@ -666,16 +666,13 @@ Example of global block structure:
 
 ### Pages file structure
 
-// about pages
-Pages are components, just like global blocks, but the difference is that a page is a component
-
+Pages are components, just like global blocks, but the difference is that a page is a component where global blocks are attached on. Page always consists of multiple global (and optionally local) blocks components, while global blocks very rarely have their own local blocks.
 Every ```pages``` folder has its name camelCased. For example: ```tableContent```
 Inside of every folder there is one LESS, one compiled CSS, one or more HTML and one JavaScript file for the page.
-Additionally, ```pages``` folder can contain ```blocks``` folder that contains local subblocks which are not used anywhere else except on that page.
+Additionally, ```pages``` folder can contain ```blocks``` folder that contains local subblocks which are not used anywhere else except on that page. If there's a requirement for a page's block to be used on multiple pages, it can be converted into a reusable block.
 
 #### Internal structure of local blocks
 
-If there's a requirement for a page's block to be used on multiple pages, it can be converted into a reusable block.
 Every ```blocks``` folder contains one LESS, one Javascript and one or more HTML files. 
 Naming for ```blocks``` files is camelCasing, except in the case if there is more than one HTML file. 
 In that case, first HTML should be camelCased (as a block name) and every additional one has an additional BEM element suffix:
@@ -698,12 +695,6 @@ tableContent
 |---tableContent__feed-import-progress.html
 |---tableContent__mapping-progress.html
 ```
-
-
- 
-
-
-
 
 ### Models file structure
 
