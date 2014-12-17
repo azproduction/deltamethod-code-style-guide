@@ -652,9 +652,10 @@ Blocks are components that are added to page componnets. They can be global or l
 
 Global blocks are located in ```common/ui folder```.
 These blocks usually consist of one JavaScript, one HTML and one LESS + CSS file, but that can differ. None of these files are mandatory, so it is possible to have a global block that has only LESS + CSS part.
+Additionally, global blocks may have ```blocks``` folder, where local blocks are placed.
 Name of the block should be a BEM block name for that component, but without the prefix and no camelCasing.
 
-Example of local block structure: 
+Example of global block structure: 
 
 ```select-palette
        |---select-palette.html
@@ -663,15 +664,15 @@ Example of local block structure:
            |---select-palette.css
 ```
 
-#### Internal structure of local blocks
-
-Every ```blocks``` folder contains one LESS, one Javascript and one or more HTML files. 
-Naming for ```blocks``` files is camelCasing, except in the case if there is more than one HTML file. 
-In that case, first HTML should be camelCased (as a block name) and every additional one has an additional BEM element suffix:
-```dynamicRule.html``` is the first HTML, the second one would be: ```dynamicRule__condition.html```.
-
-
 ### Pages file structure
+
+// about pages
+
+#### Internal structure of global blocks
+
+// opisati
+
+Example of local block structure:
 
 Additionally, ```pages``` folder can contain ```blocks``` folder that contains local subblocks which are not used anywhere else except on that page.
 If there's a requirement for a page's block to be used on multiple pages, it can be converted into a reusable block. 
@@ -679,13 +680,12 @@ If there's a requirement for a page's block to be used on multiple pages, it can
 Every ```pages``` folder has its name camelCased. For example: ```tableContent```
 Inside of every folder there is one LESS, one compiled CSS, one or more HTML and one JavaScript file for the page.
 
-
+Every ```blocks``` folder contains one LESS, one Javascript and one or more HTML files. 
+Naming for ```blocks``` files is camelCasing, except in the case if there is more than one HTML file. 
+In that case, first HTML should be camelCased (as a block name) and every additional one has an additional BEM element suffix:
+```dynamicRule.html``` is the first HTML, the second one would be: ```dynamicRule__condition.html```.
 
 
 ### Models file structure
 
 Models are located inside of ```models``` folder. 
-
-
-
-
