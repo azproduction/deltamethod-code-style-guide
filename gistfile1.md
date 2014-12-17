@@ -1,5 +1,22 @@
 # Deltamethod Code Style Guide
 
+## Support
+
+Styles should support version of Firefox that is one year old and last two versions of Chrome. IE and Safari are NOT supported.
+Yandex browser and Opera are also supported (and every Blink engine browser).
+
+### Prefix use
+
+If necessary for a CSS property, use a prefix:
+
+```css
+ -webkit-box-shadow: 3px 3px 5px 6px #ccc;
+ -moz-box-shadow: 3px 3px 5px 6px #ccc;
+ box-shadow: 3px 3px 5px 6px #ccc;
+ ```
+ 
+ However, some properties don't need prefixes with newer versions of browsers. 
+
 ## JavaScript
 
 ### Indentation and Whitespace
@@ -436,6 +453,7 @@ In ```@block``` variable should be defined BEM block specified for that LESS fil
 ```less
 .dm-modal {
     @block: ~".dm-modal";
+    
     // some styles here
 }
 ```
@@ -443,7 +461,9 @@ In ```@block``` variable should be defined BEM block specified for that LESS fil
 Block's elements should be nested inside of block with an ```& ```. Same rule applies for modifiers. They should be nested inside of an element.
 
 ```less
-@{block} {
+.dm-block {
+    @block: ~".dm-block";
+    
     &__element
         // some styles for element here
         &_modifier  {
@@ -456,7 +476,9 @@ Block's elements should be nested inside of block with an ```& ```. Same rule ap
 ```&``` is a shortcut for BEM block or element entity, not just a string, so this is bad:
 
 ```less
-@{block} {
+.dm-block {
+    @block: ~".dm-block";
+    
     &__element
         &-name {
             // some styles here
@@ -468,7 +490,9 @@ Block's elements should be nested inside of block with an ```& ```. Same rule ap
 This is how ```&``` replacing should be done:
 
 ```less
-@{block} {
+.dm-block {
+    @block: ~".dm-block";
+    
     &__element
         // some styles here
     }
@@ -504,18 +528,6 @@ Every row has 24 columns.
 See [x-responsable-grid](https://github.com/ingdir/x-responsable-grid) for more details.
 
 ## CSS
-
-#### Prefix use
-
-If necessary for a CSS property, use a prefix:
-
-```css
- -webkit-box-shadow: 3px 3px 5px 6px #ccc;
- -moz-box-shadow: 3px 3px 5px 6px #ccc;
- box-shadow: 3px 3px 5px 6px #ccc;
- ```
- 
- However, some properties don't need prefixes with newer versions of browsers. 
 
 ### Indentation
 
@@ -631,18 +643,12 @@ Full list of properties grouped in this order:
     transition: transform 150ms linear;
 }
 ```
-
-#### Support
-
-Styles should support version of Firefox that is one year old and last two versions of Chrome. IE and Safari are NOT supported.
-Yandex browser and Opera are also supported (and every Blink engine browser).
-
 ## File Structure
 
 ### Pages file structure
 
-Every ```pages``` folder has its name camelCased. ```tableContent```
-Inside of every folder there is one LESS, one HTML and one JavaScript file for the page.
+Every ```pages``` folder has its name camelCased. For example: ```tableContent```
+Inside of every folder there is one LESS, one compiled CSS, one or more HTML and one JavaScript file for the page.
 
 
 ### Blocks file structure
