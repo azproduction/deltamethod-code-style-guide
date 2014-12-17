@@ -655,15 +655,14 @@ These blocks usually consist of one JavaScript, one HTML and one LESS + CSS file
 Name of the block should be a BEM block name for that component, but without the prefix and no camelCasing.
 
 Example of local block structure: 
-select-palette
-|---select-palette.html
 
-|---select-palette.js
+```select-palette
+       |---select-palette.html
+       |---select-palette.js
+       |---select-palette.less
+           |---select-palette.css
+```
 
-|---select-palette.less
-
-    |---select-palette.css
-    
 #### Internal structure of local blocks
 
 Every ```blocks``` folder contains one LESS, one Javascript and one or more HTML files. 
