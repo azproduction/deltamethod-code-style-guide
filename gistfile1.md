@@ -657,8 +657,11 @@ Name of the block should be a BEM block name for that component, but without the
 Example of local block structure: 
 select-palette
 |---select-palette.html
+
 |---select-palette.js
+
 |---select-palette.less
+
     |---select-palette.css
     
 #### Internal structure of local blocks
